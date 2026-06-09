@@ -3,18 +3,18 @@ class ZTableCalc{
 
     public static void main(String[] args) {
         
-
+        opPicker();
         
         
-    
     }
+
 
 
     public static void opPicker(){
         while(true){
             Scanner myOp = new Scanner(System.in);
             System.out.println("What would you like to use: ");
-            System.out.println("[Z] ZTable      [C] Choose operation    [E] Exit");
+            System.out.println("[Z] ZTable      [C] Choose operation    [F] Factorial    [E] Exit");
             String myChar = myOp.next();
             switch(myChar){
                 case "Z":
@@ -23,6 +23,9 @@ class ZTableCalc{
                     break;
                 case "C":
                     chooseOp();
+                    break;
+                case "F":
+                    factorialChosen();
                     break;
                 case "E":
                     return;
@@ -46,11 +49,57 @@ class ZTableCalc{
         return myTable;
     }
 
-    public static double chooseOp(){
+    public static void chooseOp(){
+        Scanner userZIn = new  Scanner(System.in);
+        System.out.println("");
+        double firstDouble;
+        double secondDouble;
+        while(true){
+            System.out.println("Enter first number:");
+            String myChar = userZIn.next();
+            if(myChar.equals("C"))
+                return;
+            else
+                firstDouble = Double.parseDouble(myChar);
+
+            System.out.println("Enter second number:");
+            myChar = userZIn.next();
+            if(myChar.equals("C"))
+                return;
+            else
+                secondDouble = Double.parseDouble(myChar);
+        }
+    }
+
+    public static void factorialChosen(){
+        Scanner userZIn = new  Scanner(System.in);
+        System.out.println("");
+        double myNum;
+        while(true){
+            System.out.println("Enter number:");
+                String myChar = userZIn.next();
+                if(myChar.equals("C"))
+                    return;
+                else
+                    myNum = Double.parseDouble(myChar);
+            
+        
+            System.out.println(factorial(myNum)); 
+    }
+    } 
+
+    
+    public static double cEquation(double n, double k){
+        return (factorial(n))/((factorial(n - k))*factorial(k));
+
+    }
+        
 
 
-
-        return 0;
+    public static double factorial(double n){
+        if(n == 0)
+            return 1 ;
+        return n * factorial(n - 1);
     }
 
     public static void zTableIn(double[][] zTable){
