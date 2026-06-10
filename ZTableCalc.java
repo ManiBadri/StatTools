@@ -68,7 +68,19 @@ class ZTableCalc{
                 return;
             else
                 secondDouble = Double.parseDouble(myChar);
+            if(firstDouble < secondDouble){
+                System.out.println("Second number must be smaller or equal to the first");
+            }
+            else{
+                System.out.println(cEquation(firstDouble, secondDouble));
+            }
         }
+        
+    }
+
+    public static double cEquation(double n, double k){
+        return (factorial(n))/((factorial(n - k))*factorial(k));
+
     }
 
     public static void factorialChosen(){
@@ -83,16 +95,13 @@ class ZTableCalc{
                 else
                     myNum = Double.parseDouble(myChar);
             
-        
+            
             System.out.println(factorial(myNum)); 
     }
     } 
 
     
-    public static double cEquation(double n, double k){
-        return (factorial(n))/((factorial(n - k))*factorial(k));
 
-    }
         
 
 
